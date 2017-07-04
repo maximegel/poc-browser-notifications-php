@@ -37,6 +37,8 @@ In the project directory run the following command:
 ````
 Then navigate to [http://localhost:8080/](http://localhost:8080/).
 
+> Please note that a notification may take a few minutes to appear.
+
 <br>
 
 ## Troubleshooting
