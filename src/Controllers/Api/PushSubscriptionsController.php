@@ -23,8 +23,8 @@ class PushSubscriptionsController extends Controller
     {
         try {
             return $response
-              ->withHeader('Content-Type', 'application/json')
-              ->withJson($this->addPushSubscription($this->parsePushSubscriptionToStoreFormat($request->getParsedBody())));
+                ->withHeader('Content-Type', 'application/json')
+                ->withJson($this->addPushSubscription($this->parsePushSubscriptionToStoreFormat($request->getParsedBody())));
         } catch (Exception $e) {
             return $response->withStatus(500);
         }

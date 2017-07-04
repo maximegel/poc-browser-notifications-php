@@ -14,10 +14,16 @@ class PushMessagesController extends Controller
             $data = $request->getParsedBody();
             $this->triggerPushMessages($data);
             return $response
-              ->withHeader('Content-Type', 'application/json')
-              ->withJson($data);
-        } catch (Exception $e) {
-            return $response->withStatus(500);
+                ->withHeader('Content-Type', 'application/json')
+                ->withJson($data);
+        } catch (\Exception $e) {
+            return $response
+                ->withStatus(500)
+                ->withHeader('Content-Type', 'application/json')
+                ->withJson([
+                    'developperMessage' => $e->getMessage(),
+                    'userMessage' => 'Failed to send notification.'
+                ]);
         }
     }
 
@@ -26,21 +32,26 @@ class PushMessagesController extends Controller
         foreach ($this->pushSubscriptionStore->findAll() as $subscription) {
             $this->triggerPushMessage($message, $subscription, false);
         }
+        // TODO(maximegelinas): Extract this logic in a dedicated message pusher class.
         $result = $this->messagePusher->flush();
-        var_dump($result);
+        if ($result !== true && is_array($result) && count($result) >= 1) {
+            throw new \Exception($result[0]['message']);
+        }
     }
 
     private function triggerPushMessage($message, $subscription, $flush = true)
     {
-        $result = $this->messagePusher->sendNotification(
+        $this->messagePusher->sendNotification(
             $subscription->endpoint,
             json_encode($message),
             $subscription->user_public_key,
             $subscription->user_auth_token,
-            $flush
+            false
         );
-        if ($result != true) {
-            throw new Exception("Failed to send notification to $subscription->endpoint.");
+        // TODO(maximegelinas): Extract this logic in a dedicated message pusher class.
+        $result = $this->messagePusher->flush();
+        if ($result !== true && is_array($result) && count($result) >= 1) {
+            throw new \Exception($result[0]['message']);
         }
     }
 }

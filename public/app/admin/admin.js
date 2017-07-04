@@ -8,7 +8,11 @@ function triggerPushMessage() {
             },
             body: document.querySelector('.app-push-message-text-field textarea').value
         })
-        .catch(error => console.error(error));
+        .then(response => {
+            if (!response.ok)
+                response.json()
+                    .then(error => console.error(error.developperMessage));
+        })
 }
 
 function showSubscribers() {
