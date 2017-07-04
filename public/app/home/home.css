@@ -1,0 +1,20 @@
+.app-content {
+    left: 50%;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+}
+
+button {
+    background-color: #00bcd4;
+}
+
+.app-manage-push-messages-link-container {
+    margin-top: 15px;
+}
+
+.app-manage-push-messages-link {
+    color: black;
+}

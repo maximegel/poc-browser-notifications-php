@@ -1,0 +1,28 @@
+{
+    "name": "maximegelinas/browser-notifications-demo",
+    "description": "",
+    "keywords": ["php", "web notifications", "service worker"],
+    "homepage": "https://github.com/maximegelinas/browser-notifications-php-demo",
+    "license": "MIT",
+    "authors": [{
+        "name": "Maxime Gélinas",
+        "email": "maxime.gelinas@idmobiles.com"
+    }],
+    "scripts": {
+        "start": "php -S localhost:8080 -t public public/index.php"
+    },
+    "require": {
+        "php": ">=5.5.0",
+        "slim/slim": "^3.1",
+        "slim/php-view": "^2.0",
+        "monolog/monolog": "^1.17",
+        "juliangut/slim-controller": "^1.5",
+        "fire015/flintstone": "^2.1",
+        "greg0/lazer-database": "1.0.*",
+        "minishlink/web-push": "^1.4"
+    },
+    "require-dev": {},
+    "autoload": {
+        "psr-4": {"App\\": "src"}
+    }
+}

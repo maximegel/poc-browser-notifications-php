@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Demo | Browser notifications</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.grey-cyan.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/app/admin/admin.css">
+</head>
+
+<body>
+
+    <main class="app-content">
+        <h3>Send Notification</h3>
+        <div class="app-push-message-text-field mdl-textfield mdl-js-textfield">
+            <textarea class="mdl-textfield__input" type="text" rows="8">{&#13;&#10;&#9;"title": "Hi!",&#13;&#10;&#9;"body": "I'm a notification :)",&#13;&#10;&#9;"data": {&#13;&#10;&#9;&#9;"link": "https://google.com"&#13;&#10;&#9;}&#13;&#10;}</textarea>
+        </div>
+        <button class="app-trigger-push-message-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+            Trigger notification
+        </button>
+
+        <h3>Subscriber List</h3>
+        <table class="app-subscriber-table mdl-data-table mdl-js-data-table">
+            <thead>
+                <tr>
+                    <th class="mdl-data-table__cell--non-numeric">Database ID</th>
+                    <th class="mdl-data-table__cell--non-numeric">Endpoint</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <button class="app-refresh-subscriber-list-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+            Refresh
+        </button>
+    </main>
+
+    <script type="text/javascript" src="/app/admin/admin.js"></script>
+</body>
+
+</html>

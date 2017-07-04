@@ -1,0 +1,26 @@
+h3 {
+    margin-top: 65px;
+}
+
+.app-content {
+    margin: 65px 20%;
+}
+
+.app-push-message-text-field,
+.app-subscriber-table {
+    margin: 20px 0;
+    max-width: 100%;
+    padding: 0;
+    width: 100%;
+}
+
+.app-subscriber-table {
+    margin-top: 44px;
+    table-layout: fixed;
+}
+
+.app-subscriber-table td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
