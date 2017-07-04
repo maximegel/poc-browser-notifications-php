@@ -10,7 +10,7 @@
 
  <!-- == Description == -->
 
-> Example implementation of web notifications using Service Worker, Push API and PHP. The demo also had a support for old browsers using a Websockets connection.
+> Example implementation of web notifications using Service Worker, Push API and PHP.
 
 <!--
   - ====
