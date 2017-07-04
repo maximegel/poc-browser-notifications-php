@@ -1,1 +1,1 @@
-# browser-notifications-demo
+# browser-notifications-php-demo
